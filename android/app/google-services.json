@@ -1,0 +1,87 @@
+{
+  "project_info": {
+    "project_number": "685191561219",
+    "firebase_url": "https://codechat-45ec2-default-rtdb.firebaseio.com",
+    "project_id": "codechat-45ec2",
+    "storage_bucket": "codechat-45ec2.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:685191561219:android:40e051fc9247ec3ce9ce36",
+        "android_client_info": {
+          "package_name": "com.codingofworld.codechat"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDCv2HwmS1TPAJUMBwhtkV9Xrc4LUgg6D8"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:685191561219:android:9dd8bd8ae387bbc7e9ce36",
+        "android_client_info": {
+          "package_name": "com.difmo.app.difeat"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDCv2HwmS1TPAJUMBwhtkV9Xrc4LUgg6D8"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:685191561219:android:9a36aa7cdd02063de9ce36",
+        "android_client_info": {
+          "package_name": "com.difmo.difeat"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDCv2HwmS1TPAJUMBwhtkV9Xrc4LUgg6D8"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:685191561219:android:e74a67b4d2c23a13e9ce36",
+        "android_client_info": {
+          "package_name": "com.difmo.difwa"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDCv2HwmS1TPAJUMBwhtkV9Xrc4LUgg6D8"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
