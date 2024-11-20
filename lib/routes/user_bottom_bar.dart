@@ -3,7 +3,6 @@ import 'package:difwa/config/app_styles.dart';
 import 'package:difwa/screens/home_screen.dart';
 import 'package:difwa/screens/ordershistory_screen.dart';
 import 'package:difwa/screens/profile_screen.dart';
-import 'package:difwa/screens/splash_screen.dart';
 import 'package:difwa/screens/user_wallet_page.dart';
 import 'package:flutter/material.dart';
 
