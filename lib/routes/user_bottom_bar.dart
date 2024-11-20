@@ -1,8 +1,10 @@
 import 'package:difwa/config/app_color.dart';
 import 'package:difwa/config/app_styles.dart';
 import 'package:difwa/screens/home_screen.dart';
+import 'package:difwa/screens/ordershistory_screen.dart';
 import 'package:difwa/screens/profile_screen.dart';
 import 'package:difwa/screens/splash_screen.dart';
+import 'package:difwa/screens/user_wallet_page.dart';
 import 'package:flutter/material.dart';
 
 class BottomStoreHomePage extends StatefulWidget {
@@ -17,8 +19,9 @@ class _HomeScreenState extends State<BottomStoreHomePage> {
 
   final List<Widget> _screens = [
     const BookNowScreen(),
+    const WalletScreen(),
+    const HistoryScreen(),
     const ProfileScreen(),
-    const SplashScreen(),
   ];
 
   void _onItemTapped(int index) {
@@ -49,12 +52,16 @@ class _HomeScreenState extends State<BottomStoreHomePage> {
                 label: 'Home ',
               ),
               BottomNavigationBarItem(
-                icon: Icon(Icons.store, size: 30),
-                label: 'Product',
+                icon: Icon(Icons.wallet, size: 30),
+                label: 'Wallet ',
               ),
               BottomNavigationBarItem(
                 icon: Icon(Icons.shopping_bag, size: 30),
                 label: 'Order',
+              ),
+              BottomNavigationBarItem(
+                icon: Icon(Icons.person, size: 30),
+                label: 'Profile',
               ),
             ],
             currentIndex: _selectedIndex,

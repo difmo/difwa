@@ -9,8 +9,7 @@ class SubscriptionScreen extends StatefulWidget {
 }
 
 class _SubscriptionScreenState extends State<SubscriptionScreen> {
-  int selectedFrequencyIndex =
-      0; // 0 = Every Day, 1 = On Interval, 2 = Customize
+  int selectedFrequencyIndex = 0;
   DateTime? startDate;
   DateTime? endDate;
 
