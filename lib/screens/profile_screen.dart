@@ -79,6 +79,14 @@ class ProfileScreen extends StatelessWidget {
               icon: Icons.contact_mail,
               title: 'Contact Us',
             ),
+            const MenuOption(
+              icon: Icons.contact_mail,
+              title: 'Log Out',
+            ),
+            const MenuOption(
+              icon: Icons.contact_mail,
+              title: 'Become a dealer',
+            ),
           ],
         ),
       ),
