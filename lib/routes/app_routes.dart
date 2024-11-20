@@ -8,6 +8,9 @@ import 'package:difwa/screens/splash_screen.dart';
 import 'package:difwa/screens/subscription_screen.dart';
 import 'package:get/get.dart';
 
+import '../Become_a_seller/Add_Stroe_Item.dart';
+import '../Become_a_seller/Create_store.dart';
+
 class AppRoutes {
   static const String home = '/';
   static const String profile = '/profile';
@@ -17,6 +20,12 @@ class AppRoutes {
   static const String otp = '/otp';
   static const String userbottom = '/userbottom';
   static const String subscription = '/subscription';
+
+
+  //////// Admin stuff////////
+  static const additem = '/additem';
+  static const String CreateStore = '/createstore';
+
 
   static final List<GetPage> pages = [
     GetPage(
@@ -51,5 +60,18 @@ class AppRoutes {
       name: subscription,
       page: () => const SubscriptionScreen(),
     ),
+
+
+/////////////////////////Admin Routes/////////////////
+    GetPage(
+      name: additem,
+      page: () =>  AddItemPage(),
+    ),
+
+    GetPage(
+      name: CreateStore,
+      page: () => const CreateStorePage(),
+    ),
+
   ];
 }

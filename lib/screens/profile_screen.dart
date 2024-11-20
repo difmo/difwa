@@ -1,11 +1,15 @@
 import 'package:flutter/material.dart';
 
+import '../Become_a_seller/Store_on_boarding.dart';
+import '../config/app_color.dart';
+
 class ProfileScreen extends StatelessWidget {
   const ProfileScreen({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: AppColors.mywhite,
       appBar: AppBar(
         backgroundColor: Colors.white,
         elevation: 0,
@@ -70,6 +74,24 @@ class ProfileScreen extends StatelessWidget {
             const MenuOption(
               icon: Icons.help,
               title: 'Help Center',
+            ),
+            GestureDetector(
+              onTap: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => StoreOnboardingScreen(),
+                  ),
+                );
+              },
+              child: const MenuOption(
+                icon: Icons.store,
+                title: 'Become A Seller',
+              ),
+            ),
+            const MenuOption(
+              icon: Icons.info_outline,
+              title: 'About Us',
             ),
             const MenuOption(
               icon: Icons.info_outline,
