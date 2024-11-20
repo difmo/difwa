@@ -21,10 +21,7 @@ class DefaultFirebaseOptions {
     }
     switch (defaultTargetPlatform) {
       case TargetPlatform.android:
-        throw UnsupportedError(
-          'DefaultFirebaseOptions have not been configured for android - '
-          'you can reconfigure this by running the FlutterFire CLI again.',
-        );
+        return android;
       case TargetPlatform.iOS:
         return ios;
       case TargetPlatform.macOS:
@@ -54,6 +51,15 @@ class DefaultFirebaseOptions {
     measurementId: 'G-V3SL5V40WY',
   );
 
+  static const FirebaseOptions android = FirebaseOptions(
+    apiKey: 'AIzaSyDCv2HwmS1TPAJUMBwhtkV9Xrc4LUgg6D8',
+    appId: '1:685191561219:android:e74a67b4d2c23a13e9ce36',
+    messagingSenderId: '685191561219',
+    projectId: 'codechat-45ec2',
+    databaseURL: 'https://codechat-45ec2-default-rtdb.firebaseio.com',
+    storageBucket: 'codechat-45ec2.appspot.com',
+  );
+
   static const FirebaseOptions ios = FirebaseOptions(
     apiKey: 'AIzaSyBYeL8UHWFyXp1E560F-980t7G7L5gAVaE',
     appId: '1:685191561219:ios:b2911fd35010d985e9ce36',
@@ -61,7 +67,7 @@ class DefaultFirebaseOptions {
     projectId: 'codechat-45ec2',
     databaseURL: 'https://codechat-45ec2-default-rtdb.firebaseio.com',
     storageBucket: 'codechat-45ec2.appspot.com',
-    iosBundleId: 'com.example.difwa',
+    iosBundleId: 'com.difmo.difwa',
   );
 
   static const FirebaseOptions macos = FirebaseOptions(
@@ -71,7 +77,7 @@ class DefaultFirebaseOptions {
     projectId: 'codechat-45ec2',
     databaseURL: 'https://codechat-45ec2-default-rtdb.firebaseio.com',
     storageBucket: 'codechat-45ec2.appspot.com',
-    iosBundleId: 'com.example.difwa',
+    iosBundleId: 'com.difmo.difwa',
   );
 
   static const FirebaseOptions windows = FirebaseOptions(
