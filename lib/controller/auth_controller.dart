@@ -20,7 +20,7 @@ class AuthController extends GetxController {
       phoneNumber: phoneNumber,
       verificationCompleted: (PhoneAuthCredential credential) async {
         await _auth.signInWithCredential(credential);
-        await _saveUserData();
+        await _saveUserData(name); // Pass name to _saveUserData
         await _fetchUserRole();
         _navigateToDashboard();
       },
@@ -44,7 +44,7 @@ class AuthController extends GetxController {
         smsCode: otp,
       );
       await _auth.signInWithCredential(credential);
-      await _saveUserData();
+      await _saveUserData(""); // Empty name when OTP is verified
       await _fetchUserRole();
       _navigateToDashboard();
     } catch (e) {
@@ -52,7 +52,7 @@ class AuthController extends GetxController {
     }
   }
 
-  Future<void> _saveUserData() async {
+  Future<void> _saveUserData(String name) async {
     final user = _auth.currentUser;
     if (user != null) {
       DocumentSnapshot userDoc =
@@ -62,7 +62,13 @@ class AuthController extends GetxController {
           'mobileNumber': user.phoneNumber,
           'uid': user.uid,
           'role': 'isUser',
+          'name': name, // Save the name to Firestore
         }, SetOptions(merge: true));
+      } else {
+        // Update name if it exists already
+        await _firestore.collection('difwausers').doc(user.uid).update({
+          'name': name,
+        });
       }
     }
   }
@@ -97,11 +103,11 @@ class AuthController extends GetxController {
 
   void _navigateToDashboard() {
     if (userRole.value == 'isUser') {
-      // Get.offAllNamed(AppRoutes.userhome);
+      Get.offAllNamed(AppRoutes.userbottom);
     } else if (userRole.value == 'isStoreKeeper') {
-      // Get.offAllNamed(AppRoutes.storebottombar);
+      Get.offAllNamed(AppRoutes.userbottom);
     } else {
-      // Get.offAllNamed(AppRoutes.userhome);
+      Get.offAllNamed(AppRoutes.userbottom);
     }
   }
 

@@ -12,12 +12,14 @@ class MobileNumberPage extends StatefulWidget {
 
 class _MobileNumberPageState extends State<MobileNumberPage> {
   final TextEditingController phoneController = TextEditingController();
+  final TextEditingController nameController =
+      TextEditingController(); // Add this line
   final AuthController authController = Get.put(AuthController());
   bool isLoading = false;
 
   void _handleLogin() async {
     final phoneNumber = phoneController.text.trim();
-    final name = phoneController.text.trim();
+    final name = nameController.text.trim(); // Get the name from the controller
 
     if (phoneNumber.isEmpty || phoneNumber.length != 10) {
       ScaffoldMessenger.of(context).showSnackBar(
@@ -28,6 +30,20 @@ class _MobileNumberPageState extends State<MobileNumberPage> {
       );
       return;
     }
+
+    if (name.isEmpty) {
+      ScaffoldMessenger.of(context).showSnackBar(
+        const SnackBar(
+          content: Text('Please enter your name'),
+          backgroundColor: Colors.red,
+        ),
+      );
+      return;
+    }
+
+    setState(() {
+      isLoading = true;
+    });
 
     final fullPhoneNumber = '+91$phoneNumber';
 
@@ -59,7 +75,7 @@ class _MobileNumberPageState extends State<MobileNumberPage> {
             ),
             SizedBox(height: 20),
             Text(
-              "Enter your mobile number",
+              "Enter your details",
               style: AppStyle.headingBlack.copyWith(
                 fontSize: isSmallScreen ? 20 : 24,
               ),
@@ -67,18 +83,20 @@ class _MobileNumberPageState extends State<MobileNumberPage> {
             ),
             SizedBox(height: 10),
             Text(
-              "Please enter your 10-digit mobile number without country code",
+              "Please enter your name and 10-digit mobile number without country code",
               style: AppStyle.greyText18.copyWith(
                 fontSize: isSmallScreen ? 14 : 18,
               ),
               textAlign: TextAlign.center,
             ),
             SizedBox(height: 30),
+
+            // Name TextField
             TextField(
+              controller: nameController,
               cursorColor: AppColors.primary,
-              controller: phoneController,
               decoration: InputDecoration(
-                labelText: "Mobile number",
+                labelText: "Name",
                 labelStyle: AppStyle.normal.copyWith(
                   fontSize: isSmallScreen ? 14 : 16,
                 ),
@@ -95,9 +113,12 @@ class _MobileNumberPageState extends State<MobileNumberPage> {
                   borderSide: BorderSide(color: AppColors.primary),
                 ),
               ),
-              keyboardType: TextInputType.phone,
-              maxLength: 10, // Limit to 10 digits
+              keyboardType: TextInputType.name,
+              textCapitalization: TextCapitalization.words,
             ),
+            SizedBox(height: 20),
+
+            // Phone Number TextField
             TextField(
               cursorColor: AppColors.primary,
               controller: phoneController,
@@ -123,6 +144,8 @@ class _MobileNumberPageState extends State<MobileNumberPage> {
               maxLength: 10, // Limit to 10 digits
             ),
             SizedBox(height: 20),
+
+            // Continue Button
             SizedBox(
               width: double.infinity,
               height: isSmallScreen
