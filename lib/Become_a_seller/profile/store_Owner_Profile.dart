@@ -6,7 +6,7 @@ import 'package:flutter/material.dart';
 import 'package:image_picker/image_picker.dart';
 import '../../config/app_color.dart';
 import '../../config/app_styles.dart';
-import '../components/custom_dialog.dart'; // import the CustomEditDialog
+import '../Component/Custom_Dialog.dart';
 
 class StoreOwnerProfileScreen extends StatefulWidget {
   @override

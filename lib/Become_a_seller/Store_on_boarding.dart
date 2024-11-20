@@ -192,7 +192,7 @@ class _OnboardingScreenState extends State<StoreOnboardingScreen> {
                     child: Text(
                       "Create My Store",
                       style: TextStyle(
-                          color: Colors.red), // Ensure text color is red
+                          color: AppColors.primary),
                     ),
                   ),
 

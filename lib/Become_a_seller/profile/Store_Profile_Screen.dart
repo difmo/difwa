@@ -4,11 +4,9 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_storage/firebase_storage.dart';
 import 'package:flutter/material.dart';
 import 'package:image_picker/image_picker.dart';
-
-
 import '../../config/app_color.dart';
 import '../../config/app_styles.dart';
-import '../components/custom_dialog.dart';
+import '../Component/Custom_Dialog.dart';
 
 class StoreProfileScreen extends StatefulWidget {
   @override

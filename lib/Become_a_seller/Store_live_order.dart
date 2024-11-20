@@ -1,16 +1,15 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:scanner/components/admin_order_card.dart';
-import 'package:scanner/configs/app_colors.dart';
-import 'package:scanner/configs/app_styles.dart';
-import 'package:scanner/controlller/order_controller.dart';
-import 'package:scanner/model/order_model.dart';
-import 'package:scanner/screens/admin_order_history.dart';
 import '../config/app_color.dart';
-import '../routes/admin_ongoing_order.dart';
+import '../config/app_styles.dart';
 import 'package:audioplayers/audioplayers.dart';
 import 'package:vibration/vibration.dart';
+import 'Card/Order_Card.dart';
+import 'Controller/Order_Controller.dart';
+import 'Models/Order_Model.dart';
+import 'Orders/Ongoing_Order.dart';
+import 'Orders/Order_History.dart';
 
 class AdminLiveOrderScreen extends StatefulWidget {
   final bool ongoingOrdersTab;

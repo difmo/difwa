@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:scanner/utils/product_dialogbox_utils.dart';
 import '../config/app_color.dart';
 import '../config/app_styles.dart';
 import '../routes/app_routes.dart';
@@ -43,7 +42,7 @@ class ProductScreen extends StatelessWidget {
               child: Column(
                 children: controller.items.map((item) {
                   final itemData = item?.data() as Map<String, dynamic>;
-                  final itemId = item?.id;
+                  final itemId = item.id;
                   return Container(
                     margin: const EdgeInsets.only(bottom: 10), // Space between rows
                     child: Container(
@@ -141,7 +140,7 @@ class ProductScreen extends StatelessWidget {
                                 onPressed: () {
                                   showDeleteConfirmationDialog(
                                     context,
-                                    itemId,
+                                    itemId!,
                                         () => controller.deleteItem(itemId),
                                   );
                                 },

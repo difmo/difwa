@@ -3,10 +3,10 @@ import 'package:flutter/material.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:scanner/controlller/add_store_item_controller.dart';
-import 'package:scanner/model/add_store_item_model.dart';
 import '../config/app_color.dart';
 import '../config/app_styles.dart';
+import 'Controller/Item_Controller.dart';
+import 'Models/Add_Store_Item.dart';
 
 
 class AddItemPage extends StatefulWidget {

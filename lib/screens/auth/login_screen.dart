@@ -29,16 +29,12 @@ class _MobileNumberPageState extends State<MobileNumberPage> {
       return;
     }
 
-    setState(() {
-      isLoading = true;
-    });
-
     final fullPhoneNumber = '+91$phoneNumber';
 
     await authController.login(fullPhoneNumber, name);
 
     setState(() {
-      isLoading = false;
+      isLoading = true;
     });
   }
 

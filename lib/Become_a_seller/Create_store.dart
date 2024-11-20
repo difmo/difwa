@@ -2,10 +2,9 @@ import 'dart:io';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:image_picker/image_picker.dart';
-import 'package:scanner/configs/app_colors.dart';
-import 'package:scanner/controlller/add_store_controller.dart';
-
-import '../configs/app_styles.dart';
+import '../config/app_color.dart';
+import '../config/app_styles.dart';
+import 'Controller/Store_signup_Controller.dart';
 
 class CreateStorePage extends StatefulWidget {
   const CreateStorePage({super.key});
@@ -95,8 +94,6 @@ class _CreateStorePageState extends State<CreateStorePage> {
                     _buildTextField('Address', Icons.home, false,
                         controller: controller.storeaddressController),
                     const SizedBox(height: 20),
-
-                    // Image Selection Box
                     GestureDetector(
                       onTap: _showImageSourceDialog,
                       child: Container(

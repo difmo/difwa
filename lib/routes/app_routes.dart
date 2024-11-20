@@ -12,19 +12,23 @@ import '../Become_a_seller/Add_Stroe_Item.dart';
 import '../Become_a_seller/Create_store.dart';
 
 class AppRoutes {
-  static const String home = '/';
-  static const String profile = '/profile';
-  static const String splash = '/splash';
-  static const String availableservices = '/availableservices';
-  static const String login = '/login';
-  static const String otp = '/otp';
-  static const String userbottom = '/userbottom';
-  static const String subscription = '/subscription';
+  static const  home = '/';
+  static const  profile = '/profile';
+  static const  splash = '/splash';
+  static const  availableservices = '/availableservices';
+  static const  login = '/login';
+  static const  otp = '/otp';
+  static const  userbottom = '/userbottom';
+  static const  subscription = '/subscription';
 
 
   //////// Admin stuff////////
   static const additem = '/additem';
-  static const String CreateStore = '/createstore';
+  static const CreateStore = '/createstore';
+  static const storebottombar = '/storebottombar';
+  static const store_home = '/store_home';
+  static const store_profile = '/store_profile';
+
 
 
   static final List<GetPage> pages = [
@@ -67,11 +71,14 @@ class AppRoutes {
       name: additem,
       page: () =>  AddItemPage(),
     ),
-
+//
     GetPage(
       name: CreateStore,
       page: () => const CreateStorePage(),
     ),
-
+    GetPage(
+      name: storebottombar,
+      page: () => const BottomStoreHomePage(),
+    ),
   ];
 }

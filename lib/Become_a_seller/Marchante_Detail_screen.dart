@@ -3,11 +3,10 @@ import 'package:difwa/Become_a_seller/profile/store_Owner_Profile.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:get/get_core/src/get_main.dart';
-import 'package:scanner/screens/store_profile_screen.dart';
 import '../config/app_color.dart';
 import '../config/app_styles.dart';
-import '../controlller/auth_controller.dart';
-import '../roots/app_root.dart';
+import '../controller/auth_controller.dart';
+import '../routes/app_routes.dart';
 import 'Store_Setting.dart';
 
 class MerchantDrawer extends StatelessWidget {
@@ -184,7 +183,7 @@ class MerchantDrawer extends StatelessWidget {
                   try {
                     final AuthController authController = Get.find<AuthController>();
                     await authController.logout();
-                    Get.offAllNamed(AppRoutes.loginwithmobilenumber);
+                    Get.offAllNamed(AppRoutes.login);
                   } catch (e) {
                     Get.snackbar('Logout Failed', 'An error occurred while logging out. Please try again.',
                         backgroundColor: Colors.red, colorText: Colors.white);
