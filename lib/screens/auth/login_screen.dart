@@ -1,44 +1,51 @@
 import 'package:difwa/config/app_color.dart';
 import 'package:difwa/config/app_styles.dart';
-import 'package:difwa/routes/app_routes.dart';
+import 'package:difwa/controller/auth_controller.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get/get.dart';
 
 class MobileNumberPage extends StatefulWidget {
-  const MobileNumberPage({super.key});
-
   @override
   _MobileNumberPageState createState() => _MobileNumberPageState();
 }
 
 class _MobileNumberPageState extends State<MobileNumberPage> {
   final TextEditingController phoneController = TextEditingController();
+  final AuthController authController = Get.put(AuthController());
   bool isLoading = false;
 
-  // Updated _handleLogin without any validation
-  void _handleLogin() {
-    // final phoneNumber = phoneController.text.trim();
+  void _handleLogin() async {
+    final phoneNumber = phoneController.text.trim();
+    final name = phoneController.text.trim();
 
-    // Set loading state to true to show progress indicator
+    if (phoneNumber.isEmpty || phoneNumber.length != 10) {
+      ScaffoldMessenger.of(context).showSnackBar(
+        const SnackBar(
+          content: Text('Please enter a valid 10-digit mobile number'),
+          backgroundColor: Colors.red,
+        ),
+      );
+      return;
+    }
+
     setState(() {
       isLoading = true;
     });
 
-    // Simulate a delay (e.g., API call or processing)
-    Future.delayed(const Duration(seconds: 2), () {
-      setState(() {
-        isLoading = false;
-      });
+    final fullPhoneNumber = '+91$phoneNumber';
 
-      // Navigate to OTP screen without validation (pass phone number if needed)
-      Get.toNamed(AppRoutes.otp); // Pass the phone number to OTP screen
+    await authController.login(fullPhoneNumber, name);
+
+    setState(() {
+      isLoading = false;
     });
   }
 
   @override
   Widget build(BuildContext context) {
     final screenSize = MediaQuery.of(context).size;
-    final isSmallScreen = screenSize.width < 600;
+    final isSmallScreen = screenSize.width < 600; // Adjust threshold as needed
 
     return Scaffold(
       backgroundColor: Colors.white,
@@ -47,15 +54,14 @@ class _MobileNumberPageState extends State<MobileNumberPage> {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            // SVG image for illustration
-            // SizedBox(
-            //   height: screenSize.height * 0.3, // Adjust based on screen height
-            //   child: SvgPicture.asset(
-            //     'assets/images/login.svg',
-            //     semanticsLabel: 'Illustration',
-            //   ),
-            // ),
-            const SizedBox(height: 20),
+            SizedBox(
+              height: screenSize.height * 0.3, // Adjust based on screen height
+              child: SvgPicture.asset(
+                'assets/images/login.svg',
+                semanticsLabel: 'Illustration',
+              ),
+            ),
+            SizedBox(height: 20),
             Text(
               "Enter your mobile number",
               style: AppStyle.headingBlack.copyWith(
@@ -63,7 +69,7 @@ class _MobileNumberPageState extends State<MobileNumberPage> {
               ),
               textAlign: TextAlign.center,
             ),
-            const SizedBox(height: 10),
+            SizedBox(height: 10),
             Text(
               "Please enter your 10-digit mobile number without country code",
               style: AppStyle.greyText18.copyWith(
@@ -71,32 +77,7 @@ class _MobileNumberPageState extends State<MobileNumberPage> {
               ),
               textAlign: TextAlign.center,
             ),
-            const SizedBox(height: 30),
-            // TextField to enter the mobile number
-            TextField(
-              cursorColor: AppColors.primary,
-              controller: phoneController,
-              decoration: InputDecoration(
-                labelText: "Name",
-                labelStyle: AppStyle.normal.copyWith(
-                  fontSize: isSmallScreen ? 14 : 16,
-                ),
-                border: OutlineInputBorder(
-                  borderRadius: BorderRadius.circular(10),
-                  borderSide: const BorderSide(color: AppColors.primary),
-                ),
-                enabledBorder: OutlineInputBorder(
-                  borderRadius: BorderRadius.circular(10),
-                  borderSide: const BorderSide(color: AppColors.primary),
-                ),
-                focusedBorder: OutlineInputBorder(
-                  borderRadius: BorderRadius.circular(10),
-                  borderSide: const BorderSide(color: AppColors.primary),
-                ),
-              ),
-              keyboardType: TextInputType.phone,
-            ),
-            const SizedBox(height: 20),
+            SizedBox(height: 30),
             TextField(
               cursorColor: AppColors.primary,
               controller: phoneController,
@@ -107,22 +88,45 @@ class _MobileNumberPageState extends State<MobileNumberPage> {
                 ),
                 border: OutlineInputBorder(
                   borderRadius: BorderRadius.circular(10),
-                  borderSide: const BorderSide(color: AppColors.primary),
+                  borderSide: BorderSide(color: AppColors.primary),
                 ),
                 enabledBorder: OutlineInputBorder(
                   borderRadius: BorderRadius.circular(10),
-                  borderSide: const BorderSide(color: AppColors.primary),
+                  borderSide: BorderSide(color: AppColors.primary),
                 ),
                 focusedBorder: OutlineInputBorder(
                   borderRadius: BorderRadius.circular(10),
-                  borderSide: const BorderSide(color: AppColors.primary),
+                  borderSide: BorderSide(color: AppColors.primary),
                 ),
               ),
               keyboardType: TextInputType.phone,
-              maxLength: 10, // Limit to 10 digits (if needed)
+              maxLength: 10, // Limit to 10 digits
             ),
-            const SizedBox(height: 20),
-            // Continue button
+            TextField(
+              cursorColor: AppColors.primary,
+              controller: phoneController,
+              decoration: InputDecoration(
+                labelText: "Mobile number",
+                labelStyle: AppStyle.normal.copyWith(
+                  fontSize: isSmallScreen ? 14 : 16,
+                ),
+                border: OutlineInputBorder(
+                  borderRadius: BorderRadius.circular(10),
+                  borderSide: BorderSide(color: AppColors.primary),
+                ),
+                enabledBorder: OutlineInputBorder(
+                  borderRadius: BorderRadius.circular(10),
+                  borderSide: BorderSide(color: AppColors.primary),
+                ),
+                focusedBorder: OutlineInputBorder(
+                  borderRadius: BorderRadius.circular(10),
+                  borderSide: BorderSide(color: AppColors.primary),
+                ),
+              ),
+              keyboardType: TextInputType.phone,
+              maxLength: 10, // Limit to 10 digits
+            ),
+            SizedBox(height: 20),
             SizedBox(
               width: double.infinity,
               height: isSmallScreen
