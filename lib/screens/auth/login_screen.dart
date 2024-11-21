@@ -63,114 +63,116 @@ class _MobileNumberPageState extends State<MobileNumberPage> {
       backgroundColor: Colors.white,
       body: Padding(
         padding: EdgeInsets.symmetric(horizontal: isSmallScreen ? 15 : 20),
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            SizedBox(
-              height: screenSize.height * 0.3, // Adjust based on screen height
-              child: SvgPicture.asset(
-                'assets/images/login.svg',
-                semanticsLabel: 'Illustration',
-              ),
-            ),
-            SizedBox(height: 20),
-            Text(
-              "Enter your details",
-              style: AppStyle.headingBlack.copyWith(
-                fontSize: isSmallScreen ? 20 : 24,
-              ),
-              textAlign: TextAlign.center,
-            ),
-            SizedBox(height: 10),
-            Text(
-              "Please enter your name and 10-digit mobile number without country code",
-              style: AppStyle.greyText18.copyWith(
-                fontSize: isSmallScreen ? 14 : 18,
-              ),
-              textAlign: TextAlign.center,
-            ),
-            SizedBox(height: 30),
-
-            // Name TextField
-            TextField(
-              controller: nameController,
-              cursorColor: AppColors.primary,
-              decoration: InputDecoration(
-                labelText: "Name",
-                labelStyle: AppStyle.normal.copyWith(
-                  fontSize: isSmallScreen ? 14 : 16,
-                ),
-                border: OutlineInputBorder(
-                  borderRadius: BorderRadius.circular(10),
-                  borderSide: BorderSide(color: AppColors.primary),
-                ),
-                enabledBorder: OutlineInputBorder(
-                  borderRadius: BorderRadius.circular(10),
-                  borderSide: BorderSide(color: AppColors.primary),
-                ),
-                focusedBorder: OutlineInputBorder(
-                  borderRadius: BorderRadius.circular(10),
-                  borderSide: BorderSide(color: AppColors.primary),
+        child: SingleChildScrollView(
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              SizedBox(
+                height: screenSize.height * 0.3, // Adjust based on screen height
+                child: SvgPicture.asset(
+                  'assets/images/login.svg',
+                  semanticsLabel: 'Illustration',
                 ),
               ),
-              keyboardType: TextInputType.name,
-              textCapitalization: TextCapitalization.words,
-            ),
-            SizedBox(height: 20),
-
-            // Phone Number TextField
-            TextField(
-              cursorColor: AppColors.primary,
-              controller: phoneController,
-              decoration: InputDecoration(
-                labelText: "Mobile number",
-                labelStyle: AppStyle.normal.copyWith(
-                  fontSize: isSmallScreen ? 14 : 16,
+              SizedBox(height: 20),
+              Text(
+                "Enter your details",
+                style: AppStyle.headingBlack.copyWith(
+                  fontSize: isSmallScreen ? 20 : 24,
                 ),
-                border: OutlineInputBorder(
-                  borderRadius: BorderRadius.circular(10),
-                  borderSide: BorderSide(color: AppColors.primary),
-                ),
-                enabledBorder: OutlineInputBorder(
-                  borderRadius: BorderRadius.circular(10),
-                  borderSide: BorderSide(color: AppColors.primary),
-                ),
-                focusedBorder: OutlineInputBorder(
-                  borderRadius: BorderRadius.circular(10),
-                  borderSide: BorderSide(color: AppColors.primary),
-                ),
+                textAlign: TextAlign.center,
               ),
-              keyboardType: TextInputType.phone,
-              maxLength: 10, // Limit to 10 digits
-            ),
-            SizedBox(height: 20),
-
-            // Continue Button
-            SizedBox(
-              width: double.infinity,
-              height: isSmallScreen
-                  ? 50
-                  : 50, // Adjust button height for small screens
-              child: ElevatedButton(
-                onPressed: isLoading ? null : _handleLogin,
-                style: ElevatedButton.styleFrom(
-                  backgroundColor: AppColors.primary,
-                  shape: RoundedRectangleBorder(
+              SizedBox(height: 10),
+              Text(
+                "Please enter your name and 10-digit mobile number without country code",
+                style: AppStyle.greyText18.copyWith(
+                  fontSize: isSmallScreen ? 14 : 18,
+                ),
+                textAlign: TextAlign.center,
+              ),
+              SizedBox(height: 30),
+          
+              // Name TextField
+              TextField(
+                controller: nameController,
+                cursorColor: AppColors.primary,
+                decoration: InputDecoration(
+                  labelText: "Name",
+                  labelStyle: AppStyle.normal.copyWith(
+                    fontSize: isSmallScreen ? 14 : 16,
+                  ),
+                  border: OutlineInputBorder(
                     borderRadius: BorderRadius.circular(10),
+                    borderSide: BorderSide(color: AppColors.primary),
+                  ),
+                  enabledBorder: OutlineInputBorder(
+                    borderRadius: BorderRadius.circular(10),
+                    borderSide: BorderSide(color: AppColors.primary),
+                  ),
+                  focusedBorder: OutlineInputBorder(
+                    borderRadius: BorderRadius.circular(10),
+                    borderSide: BorderSide(color: AppColors.primary),
                   ),
                 ),
-                child: isLoading
-                    ? const CircularProgressIndicator(
-                        valueColor:
-                            AlwaysStoppedAnimation<Color>(AppColors.mywhite),
-                      )
-                    : const Text(
-                        "CONTINUE",
-                        style: AppStyle.headingWhite,
-                      ),
+                keyboardType: TextInputType.name,
+                textCapitalization: TextCapitalization.words,
               ),
-            ),
-          ],
+              SizedBox(height: 20),
+          
+              // Phone Number TextField
+              TextField(
+                cursorColor: AppColors.primary,
+                controller: phoneController,
+                decoration: InputDecoration(
+                  labelText: "Mobile number",
+                  labelStyle: AppStyle.normal.copyWith(
+                    fontSize: isSmallScreen ? 14 : 16,
+                  ),
+                  border: OutlineInputBorder(
+                    borderRadius: BorderRadius.circular(10),
+                    borderSide: BorderSide(color: AppColors.primary),
+                  ),
+                  enabledBorder: OutlineInputBorder(
+                    borderRadius: BorderRadius.circular(10),
+                    borderSide: BorderSide(color: AppColors.primary),
+                  ),
+                  focusedBorder: OutlineInputBorder(
+                    borderRadius: BorderRadius.circular(10),
+                    borderSide: BorderSide(color: AppColors.primary),
+                  ),
+                ),
+                keyboardType: TextInputType.phone,
+                maxLength: 10, // Limit to 10 digits
+              ),
+              SizedBox(height: 20),
+          
+              // Continue Button
+              SizedBox(
+                width: double.infinity,
+                height: isSmallScreen
+                    ? 50
+                    : 50, // Adjust button height for small screens
+                child: ElevatedButton(
+                  onPressed: isLoading ? null : _handleLogin,
+                  style: ElevatedButton.styleFrom(
+                    backgroundColor: AppColors.primary,
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(10),
+                    ),
+                  ),
+                  child: isLoading
+                      ? const CircularProgressIndicator(
+                          valueColor:
+                              AlwaysStoppedAnimation<Color>(AppColors.mywhite),
+                        )
+                      : const Text(
+                          "CONTINUE",
+                          style: AppStyle.headingWhite,
+                        ),
+                ),
+              ),
+            ],
+          ),
         ),
       ),
     );

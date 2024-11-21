@@ -42,8 +42,8 @@ class SignupController extends GetxController {
 
         UserModel newUser = _createUserModel(userId, merchantId, imageUrl);
 
-        await _updateUserRole(userId);
-        await _saveUserStore(newUser);
+        await _updatedifwaUserRole(userId);
+        await _savedifwaUserStore(newUser);
 
         _showSuccessSnackbar(merchantId);
         Get.offNamed(AppRoutes.storebottombar);
@@ -104,26 +104,26 @@ class SignupController extends GetxController {
     imageFile = image;
   }
 
-  Future<void> _updateUserRole(String userId) async {
+  Future<void> _updatedifwaUserRole(String userId) async {
     DocumentSnapshot userDoc =
-    await FirebaseFirestore.instance.collection('users').doc(userId).get();
+    await FirebaseFirestore.instance.collection('difwausers').doc(userId).get();
 
     if (userDoc.exists) {
       await FirebaseFirestore.instance
-          .collection('users')
+          .collection('difwausers')
           .doc(userId)
           .update({'role': 'isStoreKeeper'});
     } else {
-      await FirebaseFirestore.instance.collection('users').doc(userId).set({
+      await FirebaseFirestore.instance.collection('difwausers').doc(userId).set({
         'role': 'isStoreKeeper',
         'userId': userId,
       }, SetOptions(merge: true));
     }
   }
 
-  Future<void> _saveUserStore(UserModel newUser) async {
+  Future<void> _savedifwaUserStore(UserModel newUser) async {
     await FirebaseFirestore.instance
-        .collection('stores')
+        .collection('difwastores')
         .doc(newUser.uid)
         .set(newUser.toMap());
   }

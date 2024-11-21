@@ -6,14 +6,14 @@ import 'package:difwa/screens/profile_screen.dart';
 import 'package:difwa/screens/user_wallet_page.dart';
 import 'package:flutter/material.dart';
 
-class BottomStoreHomePage extends StatefulWidget {
-  const BottomStoreHomePage({super.key});
+class BottomUserHomePage extends StatefulWidget {
+  const BottomUserHomePage({super.key});
 
   @override
   _HomeScreenState createState() => _HomeScreenState();
 }
 
-class _HomeScreenState extends State<BottomStoreHomePage> {
+class _HomeScreenState extends State<BottomUserHomePage> {
   int _selectedIndex = 0;
 
   final List<Widget> _screens = [

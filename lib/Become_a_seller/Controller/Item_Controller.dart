@@ -56,7 +56,7 @@ class ItemController {
       );
 
       // Add the item to Firestore
-      await FirebaseFirestore.instance.collection('items').add(newItem.toMap());
+      await FirebaseFirestore.instance.collection('difwaitems').add(newItem.toMap());
     } catch (e) {
       throw Exception('Failed to add item: $e');
     }

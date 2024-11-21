@@ -18,7 +18,7 @@ class ProductController extends GetxController {
     try {
       isLoading.value = true;
       FirebaseFirestore.instance
-          .collection('items')
+          .collection('difwaitems')
           .where('userId', isEqualTo: userId)
           .snapshots()
           .listen((snapshot) {
@@ -32,6 +32,6 @@ class ProductController extends GetxController {
   }
 
   Future<void> deleteItem(String itemId) async {
-    await FirebaseFirestore.instance.collection('items').doc(itemId).delete();
+    await FirebaseFirestore.instance.collection('difwaitems').doc(itemId).delete();
   }
 }

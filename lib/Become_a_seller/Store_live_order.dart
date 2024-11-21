@@ -116,15 +116,15 @@ class _OrderListViewState extends State<OrderListView> {
   Widget build(BuildContext context) {
     return FutureBuilder<User?>(
       future: widget.controller.getCurrentUser(),
-      builder: (context, userSnapshot) {
-        if (userSnapshot.connectionState == ConnectionState.waiting) {
+      builder: (context, difwauserSnapshot) {
+        if (difwauserSnapshot.connectionState == ConnectionState.waiting) {
           return Center(child: CircularProgressIndicator());
         }
-        if (!userSnapshot.hasData || userSnapshot.data == null) {
+        if (!difwauserSnapshot.hasData || difwauserSnapshot.data == null) {
           return Center(child: Text('User not logged in'));
         }
 
-        final user = userSnapshot.data!;
+        final user = difwauserSnapshot.data!;
         return StreamBuilder<QuerySnapshot>(
           stream: widget.controller.getStores(user.uid),
           builder: (context, storesSnapshot) {

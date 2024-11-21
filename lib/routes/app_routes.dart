@@ -10,6 +10,7 @@ import 'package:get/get.dart';
 
 import '../Become_a_seller/Add_Stroe_Item.dart';
 import '../Become_a_seller/Create_store.dart';
+import '../Become_a_seller/Store_bottom.dart';
 
 class AppRoutes {
   static const  home = '/';
@@ -58,7 +59,7 @@ class AppRoutes {
     ),
     GetPage(
       name: userbottom,
-      page: () => const BottomStoreHomePage(),
+      page: () => const BottomUserHomePage(),
     ),
     GetPage(
       name: subscription,

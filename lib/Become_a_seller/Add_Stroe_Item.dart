@@ -41,7 +41,7 @@ class _AddItemPageState extends State<AddItemPage> {
     if (currentUser != null) {
       storeUserId = currentUser.uid;
       QuerySnapshot storeSnapshot = await FirebaseFirestore.instance
-          .collection('stores')
+          .collection('difwastores')
           .where('userId', isEqualTo: storeUserId)
           .get();
       if (storeSnapshot.docs.isNotEmpty) {

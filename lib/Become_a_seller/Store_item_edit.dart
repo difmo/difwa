@@ -87,7 +87,7 @@ class _EditItemPageState extends State<EditItemPage> {
           print("Error uploading image: $e");
         }
       }
-      FirebaseFirestore.instance.collection('items').doc(widget.itemId).update({
+      FirebaseFirestore.instance.collection('difwaitems').doc(widget.itemId).update({
         'name': _nameController.text,
         'price': _priceController.text,
         'description': _descriptionController.text,

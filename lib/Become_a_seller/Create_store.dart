@@ -24,7 +24,7 @@ class _CreateStorePageState extends State<CreateStorePage> {
     if (pickedFile != null) {
       setState(() {
         _image = File(pickedFile.path);
-        controller.setImage(_image!); // Set the image in the controller
+        controller.setImage(_image!);
       });
     }
   }

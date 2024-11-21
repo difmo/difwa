@@ -63,7 +63,7 @@ class _AdminStatsDashboardState extends State<AdminStatsDashboard> {
   Future<void> _fetchMerchantId() async {
     try {
       final QuerySnapshot snapshot = await FirebaseFirestore.instance
-          .collection('items')
+          .collection('difwaitems')
           .where('storeUserId', isEqualTo: currentUserId)
           .get();
 
@@ -81,7 +81,7 @@ class _AdminStatsDashboardState extends State<AdminStatsDashboard> {
   Future<void> _fetchItemCount() async {
     try {
       final QuerySnapshot snapshot = await FirebaseFirestore.instance
-          .collection('items')
+          .collection('difwaitems')
           .where('storeUserId', isEqualTo: currentUserId)
           .get();
 

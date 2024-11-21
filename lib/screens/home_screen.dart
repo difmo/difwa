@@ -231,7 +231,6 @@ class _BookNowScreenState extends State<BookNowScreen> {
               ),
             ),
             const SizedBox(height: 20),
-            // Two Buttons for Order and Subscription
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
@@ -246,7 +245,7 @@ class _BookNowScreenState extends State<BookNowScreen> {
                     padding: const EdgeInsets.symmetric(
                         vertical: 16.0, horizontal: 32.0),
                     shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(12.0),
+                      borderRadius: BorderRadius.circular(28.0),
                     ),
                   ),
                   child: const Text(
